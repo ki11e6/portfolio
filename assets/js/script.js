@@ -52,3 +52,21 @@ function validateForm() {
         return false;
     }
 }
+
+$("#submit-form").submit((e) => {
+    e.preventDefault()
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbx_reIq8r82fGDpEYfZnzmA2m2gExXGhLlVg1Howg-gJTgQXqe59RnnBKoRaJjceGX7zw/exec",
+        data: $("#submit-form").serialize(),
+        method: "post",
+        success: function (responses) {
+            alert("Form submitted successfully")
+            window.location.reload()
+            //window.location.href="https://google.com"
+        },
+        error: function (err) {
+            alert("Something Error")
+
+        }
+    })
+})
